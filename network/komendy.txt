@@ -1,0 +1,583 @@
+    1  sudo ls
+    2  sudo apt-get updat
+    3  sudo apt-get update
+    4  sudo apt-get install curl
+    5  curl --version
+    6  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    7  sudo add-apt-repository “deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable”
+    8  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+    9  sudo apt-get update
+   10  sudo apt-get install -y docker-ce
+   11  sudo apt-get -y install docker-compose
+   12  sudo usermod -aG docker fabric
+   13  exit
+   14  id -nG
+   15  docker --version
+   16  docker-compose --version
+   17  docker run hello-world
+   18  curl -O https://storage.googleapis.com/golang/go1.11.linux-amd64.tar.gz
+   19  sudo curl -O https://storage.googleapis.com/golang/go1.11.linux-amd64.tar.gz
+   20  tar xvf go1.11.linux-amd64.tar.gz
+   21  cd ~
+   22  curl -O https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz
+   23  sha256sum go1.6.linux-amd64.tar.gz
+   24  tar xvf go1.6.linux-amd64.tar.gz
+   25  sudo chown -R root:root ./go
+   26  sudo mv go /usr/local
+   27  sudo nano ~/.profile
+   28  source ~/.profile
+   29  dir
+   30  pwd
+   31  dir
+   32  cd ..
+   33  dir
+   34  cd ubuntu
+   35  dir
+   36  cd ..
+   37  cd fabric/
+   38  dir
+   39  dir -a
+   40  go
+   41  go --version
+   42  go version
+   43  curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh
+   44  sudo bash nodesource_setup.sh
+   45  sudo apt-get install nodejs
+   46  node -v
+   47  npm -v
+   48  sudo apt install npm
+   49  npm -v
+   50  sudo apt-get install python
+   51  python --version
+   52  curl -sSL http://bit.ly/2ysbOFE | bash -s
+   53  cd fabric-samples/first-network
+   54  cd dir
+   55  dir
+   56  cd fabric-samples/
+   57  dir
+   58  ./byfn.sh up
+   59  ./test-network
+   60  ./test-network up
+   61  ./test-network
+   62  cd test-network
+   63  dir
+   64  ./network.sh 
+   65  ./network.sh up
+   66  ./network.sh down
+   67  cd ..
+   68  dir
+   69  dir -a
+   70  cd ..
+   71  dir
+   72  cd ..
+   73  dir
+   74  cd ..
+   75  dir
+   76  cd srs
+   77  cd go
+   78  go 
+   79  go pwd
+   80  go --help
+   81  go path
+   82  cd HOME/go
+   83  cd $HOME/go
+   84  dir
+   85  cd ..
+   86  dir
+   87  cd fabric
+   88  dir
+   89  '/tmp/VirtualBox Dropped Files/2022-05-11T09:51:13.275617000Z/WAT (1).zip' 
+   90  sudo '/tmp/VirtualBox Dropped Files/2022-05-11T09:51:13.275617000Z/WAT (1).zip' 
+   91  pwd
+   92  WAT\ (1).zip
+   93  dir
+   94  rm WAT\ \(1\).zip 
+   95  sudo apt-get install zip unzi
+   96  sudo apt-get install zip unzip
+   97  uzip WAT\ .zip 
+   98  unzip WAT\ .zip 
+   99  dir
+  100  cd WAT
+  101  dir
+  102  cd Example
+  103  dier
+  104  dir
+  105  rm go.mod
+  106  rm go.sum
+  107  rm vendor
+  108  rm -r vendor
+  109  go mod init
+  110  sudo apt install golang-go
+  111  go version
+  112  go mod init
+  113  cd ..
+  114  dir
+  115  nano .profile 
+  116  cd $Home/work
+  117  mkdir $Home/work
+  118  sudo mkdir $Home/work
+  119  dir
+  120  cd $Home/work
+  121  dor
+  122  pwd
+  123  cd ..
+  124  dir
+  125  cd $Home/work
+  126  dir
+  127  cd Wat
+  128  cd WAT
+  129  dir
+  130  cd Example
+  131  go mod init
+  132  cd ..
+  133  cd $PATH:/usr/local/go/bin:$GOPATH/bin
+  134  rm $PATH:/usr/local/go/bin:$GOPATH/bin
+  135  rm $PATH:/usr/local/go/bin:$GOPATH/bin -f
+  136  cd $PATH:/usr/local/go/bin:$GOPATH/bin
+  137  dir
+  138  cd work
+  139  dir
+  140  cd WAT
+  141  dir
+  142  cd Example
+  143  dir
+  144  pwd
+  145  go mod init
+  146  cd ..
+  147  cd fabric
+  148  dir
+  149  sudo mv WAT $Home/work
+  150  dir
+  151  nano .profile 
+  152  nano .bashrc
+  153  go
+  154  dir
+  155  unzip WAT\ .zip 
+  156  cd WAT
+  157  cd Example/
+  158  dir
+  159  rm go.sum
+  160  rm go.mod
+  161  rm -r vendor
+  162  go mod init
+  163  cd ..
+  164  dir
+  165  dir ..
+  166  cd ubuntu
+  167  dir
+  168  cd ..
+  169  dir
+  170  cd ubuntu/
+  171  dir
+  172  cd ..
+  173  dir
+  174  dir -a
+  175  cd work
+  176  dir
+  177  cd ..
+  178  rm -r work -f
+  179  sudo rm -r work -f
+  180  dir -a
+  181  cd srv
+  182  dir
+  183  dir -a
+  184  cd ..
+  185  dir
+  186  dir ..
+  187  cd ~
+  188  dir
+  189  pwnd
+  190  pwd
+  191  cd ..
+  192  dir
+  193  cd ~
+  194  sudo nano ~/.profile
+  195  source ~/.profile
+  196  go version
+  197  mkdir hello
+  198  cd hello
+  199  go mod init your_domain/hello
+  200  go mod init fabric/hello
+  201  dir
+  202  rm go.mod
+  203  go mod init fabric/hello
+  204  nano hello.go
+  205  go run .
+  206  go build
+  207  ./hello
+  208  go list -f ‘{{.Target}}’
+  209  cd ..
+  210  dir
+  211  cd fabric/
+  212  dir
+  213  sudo nano ~/.profile
+  214  go install
+  215  source ~/.profile
+  216  go install
+  217  sudo nano ~/.profile
+  218  source ~/.profile
+  219  go install
+  220  dir
+  221  sudo nano ~/.profile
+  222  mkdir go
+  223  go install
+  224  go list -f ‘{{.Target}}’
+  225  go build
+  226  sudo nano ~/.profile
+  227  source ~/.profile
+  228  dir
+  229  source ~/.profile
+  230  go version
+  231  dir
+  232  cd go 
+  233  dir
+  234  cd WAT
+  235  cd ..
+  236  dir
+  237  cd WAT
+  238  dir
+  239  go mod init fabric/WAT/Example
+  240  go run
+  241  go run .
+  242  cd Example/
+  243  dir
+  244  dir ..
+  245  rm go.mod
+  246  rm -r go.mod
+  247  rm -r go.mod -f
+  248  dir
+  249  cd ..
+  250  rm -r go.mod -f
+  251  cd Example/
+  252  dir
+  253  go mod init fabric/WAT/Example/
+  254  dir
+  255  cd ..
+  256  dir
+  257  go mod init fabric/WAT/Example/
+  258  go mod init /fabric/WAT/Example/
+  259  go mod init fabric/WAT/Example
+  260  dir
+  261  rm go.mod
+  262  dir
+  263  cd Example/
+  264  go mod init fabric/WAT/Example
+  265  dir
+  266  go mod tidy
+  267  go mod vendor
+  268  sudo apt search gccgo-go
+  269  sudo apt install golang-g
+  270  sudo apt install golang-go
+  271  sudo chown -R root:root ./go
+  272  cd ..
+  273  curl -O -L "https://golang.org/dl/go${VERSION}.linux-${ARCH}.tar.gz"
+  274  wget -L "https://golang.org/dl/go${VERSION}.linux-${ARCH}.tar.gz"
+  275  VERSION="1.18.1"
+  276  ARCH="amd64"
+  277  curl -O -L "https://golang.org/dl/go${VERSION}.linux-${ARCH}.tar.gz"
+  278  wget -L "https://golang.org/dl/go${VERSION}.linux-${ARCH}.tar.gz"
+  279  ls -l
+  280  curl -sL https://golang.org/dl/ | grep -A 5 -w "go${VERSION}.linux-${ARCH}.tar.gz"
+  281  tar -xf "go${VERSION}.linux-${ARCH}.tar.gz"
+  282  ls -l
+  283  cd go/
+  284  ls -l
+  285  cd ..
+  286  sudo chown -R root:root ./go
+  287  sudo mv -v go /usr/local
+  288  sudo mv -v go /usr/local -f
+  289  sudo mv -v go /usr/local -r
+  290  mv --help
+  291  sudo mv -v go /usr/local -t
+  292  sudo mv -v -t  go /usr/local 
+  293  cd /usr/local 
+  294  cd go
+  295  dir
+  296  cd ..
+  297  vim ~/.bash_profile
+  298  nano  ~/.bash_profile
+  299  dir
+  300  nano .bashrc 
+  301  nano .profile
+  302  dir
+  303  source ~/.bash_profile
+  304  source ~/.profile
+  305  go version
+  306  dir 
+  307  mv -r WAT go
+  308  mv WAT go
+  309  sudo mv WAT go
+  310  cd go
+  311  dir
+  312  sudo mv WAT src
+  313  dir
+  314  cd src
+  315  dir
+  316  cd WAT
+  317  dir
+  318  cd Example/
+  319  dir
+  320  rm go.mod 
+  321  rm go.sum
+  322  go mod init
+  323  dir
+  324  dir -a
+  325  go mod init
+  326  dir
+  327  cd ..
+  328  dir
+  329  cd ..
+  330  sudo chown -R root:root ./go
+  331  cd go
+  332  dir
+  333  cd srv
+  334  src
+  335  cd src
+  336  dir
+  337  cd WAT
+  338  dir
+  339  cd Example/
+  340  dier
+  341  dir
+  342  go mod init
+  343  go mod tidy
+  344  go mod init
+  345  sudo go mod init
+  346  xd ..
+  347  cd ..
+  348  cd ..c
+  349  cd ..
+  350  sudo chown -R fabric:fabric ./go
+  351  cd go
+  352  cd src
+  353  cd WAT
+  354  cd Example/
+  355  sir
+  356  dir
+  357  go mod init
+  358  dir
+  359  go mod tidy
+  360  go mod vendor
+  361  dir
+  362  cd ..
+  363  dir
+  364  cd ne
+  365  cd network/
+  366  dir
+  367  ./net.sh 
+  368  ./net.sh up
+  369  export FABRIC_CFG_PATH=$PWD/config/
+  370  export CORE_PEER_TLS_ENABLED=true
+  371  export CORE_PEER_LOCALMSPID="Org1MSP"
+  372  export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org1.>
+  373  export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org1.
+  374  export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org1.wat.net/peers/peer0.org1.wat.net/tls/ca.crt
+  375  export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.wat.net/users/Admin@org1.wat.net/msp
+  376  export CORE_PEER_ADDRESS=localhost:7051
+  377  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.wat.net --tls --cafile "${PWD}/organizations/ordererOrganizations/wat.net/orderers/orderer.wat.net/msp/tlscacerts/tlsca.wat.net-cert.pem" -C example -n Example --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.wat.net/peers/peer0.org1.wat.net/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.wat.net/peers/peer0.org2.wat.net/tls/ca.crt" -c '{"function":"RegisterParcel","Args":["Destination","Product_list","Consignor"]}'
+  378  cd ..
+  379  dir
+  380  go
+  381  cd go
+  382  dir
+  383  cd go
+  384  cd src
+  385  dir
+  386  cd go
+  387  dir
+  388  cd ..
+  389  dir
+  390  cd ..
+  391  dir
+  392  cd go
+  393  dir
+  394  cd src
+  395  dir
+  396  go WAT
+  397  dir
+  398  cd WAT
+  399  dir
+  400  cd network/
+  401  dir
+  402  export FABRIC_CFG_PATH=${PWD}/configtx
+  403  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.wat.net --tls --cafile "${PWD}/organizations/ordererOrganizations/wat.net/orderers/orderer.wat.net/msp/tlscacerts/tlsca.wat.net-cert.pem" -C example -n Example --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.wat.net/peers/peer0.org1.wat.net/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.wat.net/peers/peer0.org2.wat.net/tls/ca.crt" -c '{"function":"RegisterParcel","Args":["Destination","Product_list","Consignor"]}'
+  404  dir
+  405  export FABRIC_CFG_PATH=~/go/src/WAT/network
+  406  dir
+  407  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.wat.net --tls --cafile "${PWD}/organizations/ordererOrganizations/wat.net/orderers/orderer.wat.net/msp/tlscacerts/tlsca.wat.net-cert.pem" -C example -n Example --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.wat.net/peers/peer0.org1.wat.net/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.wat.net/peers/peer0.org2.wat.net/tls/ca.crt" -c '{"function":"RegisterParcel","Args":["Destination","Product_list","Consignor"]}'
+  408  export FABRIC_CFG_PATH=~/go/src/WAT/network/config/
+  409  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.wat.net --tls --cafile "${PWD}/organizations/ordererOrganizations/wat.net/orderers/orderer.wat.net/msp/tlscacerts/tlsca.wat.net-cert.pem" -C example -n Example --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.wat.net/peers/peer0.org1.wat.net/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.wat.net/peers/peer0.org2.wat.net/tls/ca.crt" -c '{"function":"RegisterParcel","Args":["Destination","Product_list","Consignor"]}'
+  410  export FABRIC_CFG_PATH=~/go/src/WAT/network/configtx
+  411  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.wat.net --tls --cafile "${PWD}/organizations/ordererOrganizations/wat.net/orderers/orderer.wat.net/msp/tlscacerts/tlsca.wat.net-cert.pem" -C example -n Example --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.wat.net/peers/peer0.org1.wat.net/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.wat.net/peers/peer0.org2.wat.net/tls/ca.crt" -c '{"function":"RegisterParcel","Args":["Destination","Product_list","Consignor"]}'
+  412  export CORE_PEER_TLS_ENABLED=true
+  413  export CORE_PEER_LOCALMSPID="Org1MSP"
+  414  export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org1.wat.net/peers/peer0.org1.wat.net/tls/ca.crt
+  415  export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.wat.net/users/Admin@org1.wat.net/msp
+  416  export CORE_PEER_ADDRESS=localhost:7051
+  417  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.wat.net --tls --cafile "${PWD}/organizations/ordererOrganizations/wat.net/orderers/orderer.wat.net/msp/tlscacerts/tlsca.wat.net-cert.pem" -C example -n Example --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.wat.net/peers/peer0.org1.wat.net/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.wat.net/peers/peer0.org2.wat.net/tls/ca.crt" -c '{"function":"RegisterParcel","Args":["Destination","Product_list","Consignor"]}'
+  418  reboot
+  419  sudo reboot
+  420  cd fabric/
+  421  cd go/
+  422  dir -a
+  423  cd src
+  424  cd WAT
+  425  cd Example/
+  426  rm go.mod
+  427  di
+  428  rm go.sum
+  429  rm vendor
+  430  rm - r vendor
+  431  sudo rm - r vendor
+  432  sudo rm -r vendor
+  433  go mod init
+  434  go mod tidy
+  435  go mod vendor
+  436  cd ..
+  437  cd network/
+  438  ./net.sh up
+  439  export FABRIC_CFG_PATH=$PWD/config/
+  440  export CORE_PEER_TLS_ENABLED=true
+  441  export CORE_PEER_LOCALMSPID="Org1MSP"
+  442  export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org1.wat.net/peers/peer0.org1.wat.net/tls/ca.crt
+  443  export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.wat.net/users/Admin@org1.wat.net/msp
+  444  export CORE_PEER_ADDRESS=peer0.org1.wat.net:7051
+  445  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.wat.net --tls --cafile "${PWD}/organizations/ordererOrganizations/wat.net/orderers/orderer.wat.net/msp/tlscacerts
+  446  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.wat.net --tls --cafile "${PWD}/organizations/ordererOrganizations/wat.net/orderers/orderer.wat.net/msp/tlscacerts
+  447  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.wat.net --tls --cafile "${PWD}/organizations/ordererOrganizations/wat.net/orderers/orderer.wat.net/msp/tlscacerts/tlsca.wat.net-cert.pem" -C example -n Example --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.wat.net/peers/peer0.org1.wat.net/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.wat.net/peers/peer0.org2.wat.net/tls/ca.crt" -c '{"function":"RegisterParcel","Args":["Destination","Product_list","Consignor"]}'
+  448  sudo peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.wat.net --tls --cafile "${PWD}/organizations/ordererOrganizations/wat.net/orderers/orderer.wat.net/msp/tlscacerts/tlsca.wat.net-cert.pem" -C example -n Example --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.wat.net/peers/peer0.org1.wat.net/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.wat.net/peers/peer0.org2.wat.net/tls/ca.crt" -c '{"function":"RegisterParcel","Args":["Destination","Product_list","Consignor"]}'
+  449  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.wat.net --tls --cafile "${PWD}/organizations/ordererOrganizations/wat.net/orderers/orderer.wat.net/msp/tlscacerts/tlsca.wat.net-cert.pem" -C example -n Example --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.wat.net/peers/peer0.org1.wat.net/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.wat.net/peers/peer0.org2.wat.net/tls/ca.crt" -c '{"function":"RegisterParcel","Args":["Destination","Product_list","Consignor"]}'
+  450  cd ..
+  451  sudo nano .bashrc 
+  452  reboot
+  453  sudo reboot
+  454  cd ..
+  455  dir
+  456  nano .bashrc 
+  457  ./bashrc 
+  458  source ~/.bashrc
+  459  nano .bashrc 
+  460  source ~/.bashrc
+  461  dir
+  462  cd go
+  463  cd src
+  464  cd WAT
+  465  cd Example/
+  466  dir
+  467  rm go.sum
+  468  rm go.mod
+  469  rm -r vendor/
+  470  dir
+  471  go mod init
+  472  go mod tidy
+  473  go mod vendor
+  474  cd ..
+  475  cd network/
+  476  dir
+  477  dir -a
+  478  ./net.sh 
+  479  ./net.sh up
+  480  export FABRIC_CFG_PATH=$PWD/config/
+  481  export CORE_PEER_TLS_ENABLED=true
+  482  export CORE_PEER_LOCALMSPID="Org1MSP"
+  483  export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org1.wat.net/peers/peer0.org1.wat.net/tls/ca.crt
+  484  export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.wat.net/users/Admin@org1.wat.net/msp
+  485  export CORE_PEER_ADDRESS=peer0.org1.wat.net:7051
+  486  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.wat.net --tls --cafile "${PWD}/organizations/ordererOrganizations/wat.net/orderers/orderer.wat.net/msp/tlscacerts/tlsca.wat.net-cert.pem" -C example -n Example --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.wat.net/peers/peer0.org1.wat.net/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.wat.net/peers/peer0.org2.wat.net/tls/ca.crt" -c '{"function":"RegisterParcel","Args":["Destination","Product_list","Consignor"]}'
+  487  $PWD/config/
+  488  $PWD/config ls -a
+  489  $PWD/config ls
+  490  $PWD/config dir
+  491  $(PWD)/config dir
+  492  $(pwd)/config dir
+  493  $(pwd)
+  494  confir ls -a
+  495  config ls -a
+  496  pwd
+  497  dir
+  498  config ls -a
+  499  config/ ls -a
+  500  /config/ ls -a
+  501  config/ dir
+  502  $(config)/ dir
+  503  cd config
+  504  dir
+  505  ls -a
+  506  cd ..
+  507  dir bin
+  508  ls -a
+  509  cd bin
+  510  ls -a
+  511  export FABRIC_CFG_PATH=$PWD/
+  512  cd ..
+  513  export CORE_PEER_TLS_ENABLED=true
+  514  export CORE_PEER_LOCALMSPID="Org1MSP"
+  515  export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org1.wat.net/peers/peer0.org1.wat.net/tls/ca.crt
+  516  export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.wat.net/users/Admin@org1.wat.net/msp
+  517  export CORE_PEER_ADDRESS=peer0.org1.wat.net:7051
+  518  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.wat.net --tls --cafile "${PWD}/organizations/ordererOrganizations/wat.net/orderers/orderer.wat.net/msp/tlscacerts/tlsca.wat.net-cert.pem" -C example -n Example --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.wat.net/peers/peer0.org1.wat.net/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.wat.net/peers/peer0.org2.wat.net/tls/ca.crt" -c '{"function":"RegisterParcel","Args":["Destination","Product_list","Consignor"]}'
+  519  export FABRIC_CFG_PATH=$PWD/config/
+  520  docker ps -a
+  521  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.wat.net --tls --cafile "${PWD}/organizations/ordererOrganizations/wat.net/orderers/orderer.wat.net/msp/tlscacerts/tlsca.wat.net-cert.pem" -C example -n Example --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.wat.net/peers/peer0.org1.wat.net/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.wat.net/peers/peer0.org2.wat.net/tls/ca.crt" -c '{"function":"RegisterParcel","Args":["Destination","Product_list","Consignor"]}'
+  522  source ~/.bashrc
+  523  exec bash
+  524  docker ps -a
+  525  docker images ls
+  526  docker image ls
+  527  docker image rm 1625a1462f8c
+  528  docker ps -a
+  529  docker image ls
+  530  docker volume ls 
+  531  docker volumes ls 
+  532  docker network ls
+  533  sudo nano /home/fabric/.profile
+  534  source /home/fabric/.profile
+  535  ./net.sh down
+  536  cat /home/fabric/.profile
+  537  cat /home/fabric/.bashrc
+  538  cd ..
+  539  cd Example/
+  540  go mod init
+  541  go mod tidy
+  542  go mod vendor
+  543  cd ..
+  544  cd network/
+  545  ./net.sh up
+  546  export FABRIC_CFG_PATH=$PWD/config/
+  547  export CORE_PEER_TLS_ENABLED=true
+  548  export CORE_PEER_LOCALMSPID="Org1MSP"
+  549  export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org1.wat.net/peers/peer0.org1.wat.net/tls/ca.crt
+  550  export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.wat.net/users/Admin@org1.wat.net/msp
+  551  export CORE_PEER_ADDRESS=localhost:7051
+  552  docker ps -a
+  553  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.wat.net --tls --cafile "${PWD}/organizations/ordererOrganizations/wat.net/orderers/orderer.wat.net/msp/tlscacerts/tlsca.wat.net-cert.pem" -C example -n Example --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.wat.net/peers/peer0.org1.wat.net/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.wat.net/peers/peer0.org2.wat.net/tls/ca.crt" -c '{"function":"RegisterParcel","Args":["Destination","Product_list","Consignor"]}'
+  554  peer
+  555  pwd
+  556  peer
+  557  nano /home/fabric/.profile
+  558  ./net.sh down
+  559  sudo reeboot
+  560  sudo reboot
+  561  go mod init
+  562  go mod tidy
+  563  go mod vendor
+  564  cd ..
+  565  cd network/
+  566  peer
+  567  ./net.sh up
+  568  export FABRIC_CFG_PATH=$PWD/config/
+  569  export CORE_PEER_TLS_ENABLED=true
+  570  export CORE_PEER_LOCALMSPID="Org1MSP"
+  571  export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org1.wat.net/peers/peer0.org1.wat.net/tls/ca.crt
+  572  export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.wat.net/users/Admin@org1.wat.net/msp
+  573  export CORE_PEER_ADDRESS=localhost:7051
+  574  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.wat.net --tls --cafile "${PWD}/organizations/ordererOrganizations/wat.net/orderers/orderer.wat.net/msp/tlscacerts/tlsca.wat.net-cert.pem" -C example -n Example --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.wat.net/peers/peer0.org1.wat.net/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.wat.net/peers/peer0.org2.wat.net/tls/ca.crt" -c '{"function":"RegisterParcel","Args":["Destination","Product_list","Consignor"]}'
+  575  peer chaincode query -C example -n Example -c '{"function":"GetParcel","Args":["44d09526342fb5e63477e0056ce9682630d4af7e29e0a99a90cd5a9120c45e40"]}'
+  576  export CORE_PEER_LOCALMSPID="Org2MSP"
+  577  export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org2.wat.net/peers/peer0.org2.wat.net/tls/ca.crt
+  578  export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org2.wat.net/users/Admin@org2.wat.net/msp
+  579  export CORE_PEER_ADDRESS=localhost:9051
+  580  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.wat.net --tls --cafile "${PWD}/organizations/ordererOrganizations/wat.net/orderers/orderer.wat.net/msp/tlscacerts/tlsca.wat.net-cert.pem" -C example -n Example --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.wat.net/peers/peer0.org1.wat.net/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.wat.net/peers/peer0.org2.wat.net/tls/ca.crt" -c '{"function":"SortingO1","Args":["44d09526342fb5e63477e0056ce9682630d4af7e29e0a99a90cd5a9120c45e40"]}'
+  581  komends
+  582  comends
+  583  history >> komendy.txt
