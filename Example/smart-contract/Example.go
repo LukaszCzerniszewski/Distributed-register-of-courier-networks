@@ -20,6 +20,7 @@ type ParcelType struct {
 	Product_List string `json:"product_list"`
 	Consignor    string `json:"consignor"`
 	Localization string `json:"localization"`
+	Track        string `json:"Track"`
 }
 
 func (s *SmartContract) RegisterParcel(ctx contractapi.TransactionContextInterface, Destination string, Product_List string, Consignor string) string {
@@ -42,6 +43,7 @@ func (s *SmartContract) RegisterParcel(ctx contractapi.TransactionContextInterfa
 	parcel.Destination = Destination
 	parcel.Localization = "Initial localization"
 	parcel.ID = ctx.GetStub().GetTxID()
+	parcel.Track = "RegisterParcel"
 
 	parcelJSON, err := ctx.GetStub().GetState(parcel.ID)
 	if err != nil {
@@ -92,7 +94,7 @@ func (s *SmartContract) SortingO1(ctx contractapi.TransactionContextInterface, I
 		return fmt.Errorf("ID is empty").Error()
 	}
 	request_Org, _ := ctx.GetClientIdentity().GetMSPID()
-	if !strings.EqualFold("Org1MSP", request_Org) {
+	if !strings.EqualFold("Org2MSP", request_Org) {
 		log.Printf("wrong organization: %v", request_Org)
 		return fmt.Errorf("wrong organization: %v", request_Org).Error()
 	}
@@ -112,6 +114,221 @@ func (s *SmartContract) SortingO1(ctx contractapi.TransactionContextInterface, I
 		return fmt.Errorf("failed to unmarshall JSON parcel: %v", err).Error()
 	}
 	parcel.Localization = "Sorting facility ORG1"
+	//Create JSON
+	parcelJSON, err = json.Marshal(parcel)
+	if err != nil {
+		log.Printf("failed to create JSON: %v", err)
+		return fmt.Errorf("failed to create JSON: %v", err).Error()
+	}
+
+	// Write parcel object to ledger
+	err = ctx.GetStub().PutState(parcel.ID, parcelJSON)
+	if err != nil {
+		log.Printf("Error while adding new parcel to ledger: " + err.Error() + "")
+		return fmt.Errorf("Error while adding new parcel to ledger: " + err.Error() + "").Error()
+	}
+	return parcel.ID
+}
+
+func (s *SmartContract) SortingO2(ctx contractapi.TransactionContextInterface, ID string) string {
+	log.Printf("============Parcel Sort O2============")
+	if ID == "" {
+		log.Printf("ID is empty")
+		return fmt.Errorf("ID is empty").Error()
+	}
+	request_Org, _ := ctx.GetClientIdentity().GetMSPID()
+	if !strings.EqualFold("Org1MSP", request_Org) {
+		log.Printf("wrong organization: %v", request_Org)
+		return fmt.Errorf("wrong organization: %v", request_Org).Error()
+	}
+	parcelJSON, err := ctx.GetStub().GetState(ID)
+	if err != nil {
+		log.Printf("failed to read from world state: %v", err)
+		return fmt.Errorf("failed to read from world state: %v", err).Error()
+	}
+	if parcelJSON == nil {
+		log.Printf("the parcel %s exist", ID)
+		return fmt.Errorf("the parcel %s exist", ID).Error()
+	}
+	var parcel ParcelType
+	err = json.Unmarshal(parcelJSON, &parcel)
+	if err != nil {
+		log.Printf("failed to unmarshall JSON parcel: %v", err)
+		return fmt.Errorf("failed to unmarshall JSON parcel: %v", err).Error()
+	}
+	parcel.Localization = "Sorting facility ORG2"
+	//Create JSON
+	parcelJSON, err = json.Marshal(parcel)
+	if err != nil {
+		log.Printf("failed to create JSON: %v", err)
+		return fmt.Errorf("failed to create JSON: %v", err).Error()
+	}
+
+	// Write parcel object to ledger
+	err = ctx.GetStub().PutState(parcel.ID, parcelJSON)
+	if err != nil {
+		log.Printf("Error while adding new parcel to ledger: " + err.Error() + "")
+		return fmt.Errorf("Error while adding new parcel to ledger: " + err.Error() + "").Error()
+	}
+	return parcel.ID
+}
+
+func (s *SmartContract) BranchO1(ctx contractapi.TransactionContextInterface, ID string) string {
+	log.Printf("============Parcel Branch O1============")
+	if ID == "" {
+		log.Printf("ID is empty")
+		return fmt.Errorf("ID is empty").Error()
+	}
+	request_Org, _ := ctx.GetClientIdentity().GetMSPID()
+	if !strings.EqualFold("Org1MSP", request_Org) {
+		log.Printf("wrong organization: %v", request_Org)
+		return fmt.Errorf("wrong organization: %v", request_Org).Error()
+	}
+	parcelJSON, err := ctx.GetStub().GetState(ID)
+	if err != nil {
+		log.Printf("failed to read from world state: %v", err)
+		return fmt.Errorf("failed to read from world state: %v", err).Error()
+	}
+	if parcelJSON == nil {
+		log.Printf("the parcel %s exist", ID)
+		return fmt.Errorf("the parcel %s exist", ID).Error()
+	}
+	var parcel ParcelType
+	err = json.Unmarshal(parcelJSON, &parcel)
+	if err != nil {
+		log.Printf("failed to unmarshall JSON parcel: %v", err)
+		return fmt.Errorf("failed to unmarshall JSON parcel: %v", err).Error()
+	}
+	parcel.Localization = "Branch facility ORG1"
+	//Create JSON
+	parcelJSON, err = json.Marshal(parcel)
+	if err != nil {
+		log.Printf("failed to create JSON: %v", err)
+		return fmt.Errorf("failed to create JSON: %v", err).Error()
+	}
+
+	// Write parcel object to ledger
+	err = ctx.GetStub().PutState(parcel.ID, parcelJSON)
+	if err != nil {
+		log.Printf("Error while adding new parcel to ledger: " + err.Error() + "")
+		return fmt.Errorf("Error while adding new parcel to ledger: " + err.Error() + "").Error()
+	}
+	return parcel.ID
+}
+
+func (s *SmartContract) BranchO2(ctx contractapi.TransactionContextInterface, ID string) string {
+	log.Printf("============Parcel Branch O2============")
+	if ID == "" {
+		log.Printf("ID is empty")
+		return fmt.Errorf("ID is empty").Error()
+	}
+	request_Org, _ := ctx.GetClientIdentity().GetMSPID()
+	if !strings.EqualFold("Org2MSP", request_Org) {
+		log.Printf("wrong organization: %v", request_Org)
+		return fmt.Errorf("wrong organization: %v", request_Org).Error()
+	}
+	parcelJSON, err := ctx.GetStub().GetState(ID)
+	if err != nil {
+		log.Printf("failed to read from world state: %v", err)
+		return fmt.Errorf("failed to read from world state: %v", err).Error()
+	}
+	if parcelJSON == nil {
+		log.Printf("the parcel %s exist", ID)
+		return fmt.Errorf("the parcel %s exist", ID).Error()
+	}
+	var parcel ParcelType
+	err = json.Unmarshal(parcelJSON, &parcel)
+	if err != nil {
+		log.Printf("failed to unmarshall JSON parcel: %v", err)
+		return fmt.Errorf("failed to unmarshall JSON parcel: %v", err).Error()
+	}
+	parcel.Localization = "Branch facility ORG2"
+	//Create JSON
+	parcelJSON, err = json.Marshal(parcel)
+	if err != nil {
+		log.Printf("failed to create JSON: %v", err)
+		return fmt.Errorf("failed to create JSON: %v", err).Error()
+	}
+
+	// Write parcel object to ledger
+	err = ctx.GetStub().PutState(parcel.ID, parcelJSON)
+	if err != nil {
+		log.Printf("Error while adding new parcel to ledger: " + err.Error() + "")
+		return fmt.Errorf("Error while adding new parcel to ledger: " + err.Error() + "").Error()
+	}
+	return parcel.ID
+}
+
+func (s *SmartContract) GiveToCourier(ctx contractapi.TransactionContextInterface, ID string, CourierID string) string {
+	log.Printf("============Parcel Courier ============")
+	if ID == "" {
+		log.Printf("ID is empty")
+		return fmt.Errorf("ID is empty").Error()
+	}
+	// request_Org, _ := ctx.GetClientIdentity().GetMSPID()
+	// if !strings.EqualFold("Org2MSP", request_Org) {
+	// 	log.Printf("wrong organization: %v", request_Org)
+	// 	return fmt.Errorf("wrong organization: %v", request_Org).Error()
+	// }
+	parcelJSON, err := ctx.GetStub().GetState(ID)
+	if err != nil {
+		log.Printf("failed to read from world state: %v", err)
+		return fmt.Errorf("failed to read from world state: %v", err).Error()
+	}
+	if parcelJSON == nil {
+		log.Printf("the parcel %s exist", ID)
+		return fmt.Errorf("the parcel %s exist", ID).Error()
+	}
+	var parcel ParcelType
+	err = json.Unmarshal(parcelJSON, &parcel)
+	if err != nil {
+		log.Printf("failed to unmarshall JSON parcel: %v", err)
+		return fmt.Errorf("failed to unmarshall JSON parcel: %v", err).Error()
+	}
+	parcel.Localization = "Courier" + CourierID
+	//Create JSON
+	parcelJSON, err = json.Marshal(parcel)
+	if err != nil {
+		log.Printf("failed to create JSON: %v", err)
+		return fmt.Errorf("failed to create JSON: %v", err).Error()
+	}
+
+	// Write parcel object to ledger
+	err = ctx.GetStub().PutState(parcel.ID, parcelJSON)
+	if err != nil {
+		log.Printf("Error while adding new parcel to ledger: " + err.Error() + "")
+		return fmt.Errorf("Error while adding new parcel to ledger: " + err.Error() + "").Error()
+	}
+	return parcel.ID
+}
+
+func (s *SmartContract) Delivered(ctx contractapi.TransactionContextInterface, ID string, CourierID string) string {
+	log.Printf("============Parcel Delivered ============")
+	if ID == "" {
+		log.Printf("ID is empty")
+		return fmt.Errorf("ID is empty").Error()
+	}
+	// request_Org, _ := ctx.GetClientIdentity().GetMSPID()
+	// if !strings.EqualFold("Org2MSP", request_Org) {
+	// 	log.Printf("wrong organization: %v", request_Org)
+	// 	return fmt.Errorf("wrong organization: %v", request_Org).Error()
+	// }
+	parcelJSON, err := ctx.GetStub().GetState(ID)
+	if err != nil {
+		log.Printf("failed to read from world state: %v", err)
+		return fmt.Errorf("failed to read from world state: %v", err).Error()
+	}
+	if parcelJSON == nil {
+		log.Printf("the parcel %s exist", ID)
+		return fmt.Errorf("the parcel %s exist", ID).Error()
+	}
+	var parcel ParcelType
+	err = json.Unmarshal(parcelJSON, &parcel)
+	if err != nil {
+		log.Printf("failed to unmarshall JSON parcel: %v", err)
+		return fmt.Errorf("failed to unmarshall JSON parcel: %v", err).Error()
+	}
+	parcel.Localization = "Delivered"
 	//Create JSON
 	parcelJSON, err = json.Marshal(parcel)
 	if err != nil {
