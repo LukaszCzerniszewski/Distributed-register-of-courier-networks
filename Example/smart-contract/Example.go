@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"strings"
+	"time"
 
 	"github.com/hyperledger/fabric-contract-api-go/contractapi"
 )
@@ -24,6 +25,7 @@ type ParcelType struct {
 }
 
 func (s *SmartContract) RegisterParcel(ctx contractapi.TransactionContextInterface, Destination string, Product_List string, Consignor string) string {
+
 	log.Printf("============Parcel Registration============")
 	if Destination == "" {
 		log.Printf("Destination is empty")
@@ -37,13 +39,15 @@ func (s *SmartContract) RegisterParcel(ctx contractapi.TransactionContextInterfa
 		log.Printf("Consignor is empty")
 		return fmt.Errorf("Consignor is empty").Error()
 	}
+
 	var parcel ParcelType
 	parcel.Consignor = Consignor
 	parcel.Product_List = Product_List
 	parcel.Destination = Destination
 	parcel.Localization = "Initial localization"
 	parcel.ID = ctx.GetStub().GetTxID()
-	parcel.Track = "RegisterParcel"
+	dt := time.Now()
+	parcel.Track = "RegisterParcel " + dt.Format("01-02-2006 15:04:05")
 
 	parcelJSON, err := ctx.GetStub().GetState(parcel.ID)
 	if err != nil {
@@ -87,6 +91,35 @@ func (s *SmartContract) GetParcel(ctx contractapi.TransactionContextInterface, i
 	return string(parcelJSON), nil
 }
 
+// sTART
+func (s *SmartContract) GetTrace(ctx contractapi.TransactionContextInterface, ID string) string {
+
+	if ID == "" {
+		log.Printf("ID is empty")
+		return fmt.Errorf("ID is empty").Error()
+	}
+
+	parcelJSON, err := ctx.GetStub().GetState(ID)
+	if err != nil {
+		log.Printf("failed to read from world state: %v", err)
+		return fmt.Errorf("failed to read from world state: %v", err).Error()
+	}
+	if parcelJSON == nil {
+		log.Printf("the parcel %s exist", ID)
+		return fmt.Errorf("the parcel %s exist", ID).Error()
+	}
+	var parcel ParcelType
+	err = json.Unmarshal(parcelJSON, &parcel)
+	if err != nil {
+		log.Printf("failed to unmarshall JSON parcel: %v", err)
+		return fmt.Errorf("failed to unmarshall JSON parcel: %v", err).Error()
+	}
+	log.Printf("Current parcel track : ")
+	return parcel.Track
+}
+
+// eND
+
 func (s *SmartContract) SortingO1(ctx contractapi.TransactionContextInterface, ID string) string {
 	log.Printf("============Parcel Sort O1============")
 	if ID == "" {
@@ -114,6 +147,8 @@ func (s *SmartContract) SortingO1(ctx contractapi.TransactionContextInterface, I
 		return fmt.Errorf("failed to unmarshall JSON parcel: %v", err).Error()
 	}
 	parcel.Localization = "Sorting facility ORG1"
+	dt := time.Now()
+	parcel.Track = parcel.Track + " -> Sorting ORG1 " + dt.Format("01-02-2006 15:04:05")
 	//Create JSON
 	parcelJSON, err = json.Marshal(parcel)
 	if err != nil {
@@ -157,6 +192,8 @@ func (s *SmartContract) SortingO2(ctx contractapi.TransactionContextInterface, I
 		return fmt.Errorf("failed to unmarshall JSON parcel: %v", err).Error()
 	}
 	parcel.Localization = "Sorting facility ORG2"
+	dt := time.Now()
+	parcel.Track = parcel.Track + " -> Sorting ORG2 " + dt.Format("01-02-2006 15:04:05")
 	//Create JSON
 	parcelJSON, err = json.Marshal(parcel)
 	if err != nil {
@@ -200,6 +237,8 @@ func (s *SmartContract) BranchO1(ctx contractapi.TransactionContextInterface, ID
 		return fmt.Errorf("failed to unmarshall JSON parcel: %v", err).Error()
 	}
 	parcel.Localization = "Branch facility ORG1"
+	dt := time.Now()
+	parcel.Track = parcel.Track + " -> Branch ORG1 " + dt.Format("01-02-2006 15:04:05")
 	//Create JSON
 	parcelJSON, err = json.Marshal(parcel)
 	if err != nil {
@@ -243,6 +282,8 @@ func (s *SmartContract) BranchO2(ctx contractapi.TransactionContextInterface, ID
 		return fmt.Errorf("failed to unmarshall JSON parcel: %v", err).Error()
 	}
 	parcel.Localization = "Branch facility ORG2"
+	dt := time.Now()
+	parcel.Track = parcel.Track + " -> Branch ORG2 " + dt.Format("01-02-2006 15:04:05")
 	//Create JSON
 	parcelJSON, err = json.Marshal(parcel)
 	if err != nil {
@@ -285,7 +326,9 @@ func (s *SmartContract) GiveToCourier(ctx contractapi.TransactionContextInterfac
 		log.Printf("failed to unmarshall JSON parcel: %v", err)
 		return fmt.Errorf("failed to unmarshall JSON parcel: %v", err).Error()
 	}
-	parcel.Localization = "Courier" + CourierID
+	parcel.Localization = "Courier " + CourierID
+	dt := time.Now()
+	parcel.Track = parcel.Track + " -> " + parcel.Localization + " " + dt.Format("01-02-2006 15:04:05")
 	//Create JSON
 	parcelJSON, err = json.Marshal(parcel)
 	if err != nil {
@@ -302,7 +345,7 @@ func (s *SmartContract) GiveToCourier(ctx contractapi.TransactionContextInterfac
 	return parcel.ID
 }
 
-func (s *SmartContract) Delivered(ctx contractapi.TransactionContextInterface, ID string, CourierID string) string {
+func (s *SmartContract) Delivered(ctx contractapi.TransactionContextInterface, ID string) string {
 	log.Printf("============Parcel Delivered ============")
 	if ID == "" {
 		log.Printf("ID is empty")
@@ -329,6 +372,8 @@ func (s *SmartContract) Delivered(ctx contractapi.TransactionContextInterface, I
 		return fmt.Errorf("failed to unmarshall JSON parcel: %v", err).Error()
 	}
 	parcel.Localization = "Delivered"
+	dt := time.Now()
+	parcel.Track = parcel.Track + " -> " + parcel.Localization + " " + dt.Format("01-02-2006 15:04:05")
 	//Create JSON
 	parcelJSON, err = json.Marshal(parcel)
 	if err != nil {
