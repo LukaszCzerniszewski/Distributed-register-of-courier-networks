@@ -18,7 +18,11 @@ import (
 
 	"strings"
 	 
+<<<<<<< HEAD
 	"regexp"
+=======
+	
+>>>>>>> 3df4cd3d34ffe9f5f22ceb29318fb26b1fd23c34
 
 )
 
@@ -63,6 +67,7 @@ type ParcelType struct {
 }
 
 
+<<<<<<< HEAD
 type ParcelID struct {
 
 	ID string `json:"ID"`
@@ -187,10 +192,26 @@ func GiveToCourier(numerPrzesylki string, numerKuriera string) string{
 	//UserObject := Kurier{numerPrzesylki, numerKuriera}
 	//UserObject := Kurier{"fwfawf", "wafawf"}
 	UserObject := ParcelType{numerPrzesylki,numerKuriera,"null"  ,"null","null","null"}
+=======
+
+func main() {
+
+	// Tworzenie obiektu JSON
+
+	var attrib []ParcelType
+
+	attrib = append(attrib, ParcelType{"id","Destination","Product_list","Consignor","localization","Track"})
+
+
+
+	UserObject := User{ID: "127@org1", Attributes: attrib}
+
+>>>>>>> 3df4cd3d34ffe9f5f22ceb29318fb26b1fd23c34
 	jsonValue, _ := json.Marshal(UserObject)
 
 	log.Printf(string(jsonValue))
 
+<<<<<<< HEAD
 	//print(UserObject.IDKuriera,"      ", UserObject.IDPaczki, "Koniec \n")
 	// Wyslanie danych do serwera i obsluga odpowiedzi -- Rjestracja przesyki
 
@@ -297,6 +318,13 @@ func SortingO2(numerPrzesylki string) string{
 	// Wyslanie danych do serwera i obsluga odpowiedzi -- Rjestracja przesyki
 
 	response, err := http.Post("http://127.0.0.1:8080/SortingO2", "application/json", bytes.NewBuffer(jsonValue))
+=======
+
+
+	// Wyslanie danych do serwera i obsluga odpowiedzi
+
+	response, err := http.Post("http://127.0.0.1:8080/RegisterUser", "application/json", bytes.NewBuffer(jsonValue))
+>>>>>>> 3df4cd3d34ffe9f5f22ceb29318fb26b1fd23c34
 
 	if err != nil {
 
@@ -309,6 +337,7 @@ func SortingO2(numerPrzesylki string) string{
 		body := strings.Split(string(data), "\n")
 
 		fmt.Println(body[0])
+<<<<<<< HEAD
 		
 		return body[0]
 		
@@ -460,3 +489,13 @@ func GetParcel(numerPrzesylki string) string{
 }
 return string("NULL")
 }
+=======
+
+		log.Printf("%v", response.Status)
+
+	}
+
+	fmt.Println("Terminating the application...")
+
+}
+>>>>>>> 3df4cd3d34ffe9f5f22ceb29318fb26b1fd23c34
