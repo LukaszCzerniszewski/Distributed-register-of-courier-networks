@@ -6,7 +6,7 @@ import (
 	"log"
 	"strings"
 	"time"
-
+	"regexp"
 	"github.com/hyperledger/fabric-contract-api-go/contractapi"
 )
 
@@ -127,6 +127,13 @@ func (s *SmartContract) SortingO1(ctx contractapi.TransactionContextInterface, I
 		return fmt.Errorf("ID is empty").Error()
 	}
 	request_Org, _ := ctx.GetClientIdentity().GetMSPID()
+
+	re, err := regexp.Compile(`[^\w]`)
+	if err != nil {
+		log.Fatal(err)
+	}
+	request_Org = re.ReplaceAllString(request_Org, "")
+
 	if !strings.EqualFold("Org2MSP", request_Org) {
 		log.Printf("wrong organization: %v", request_Org)
 		return fmt.Errorf("wrong organization: %v", request_Org).Error()
@@ -146,7 +153,7 @@ func (s *SmartContract) SortingO1(ctx contractapi.TransactionContextInterface, I
 		log.Printf("failed to unmarshall JSON parcel: %v", err)
 		return fmt.Errorf("failed to unmarshall JSON parcel: %v", err).Error()
 	}
-	parcel.Localization = "Sorting facility ORG1"
+	parcel.Localization = "Sorting facility ORG2"
 	dt := time.Now()
 	parcel.Track = parcel.Track + " -> Sorting ORG1 " + dt.Format("01-02-2006 15:04:05")
 	//Create JSON
@@ -172,6 +179,14 @@ func (s *SmartContract) SortingO2(ctx contractapi.TransactionContextInterface, I
 		return fmt.Errorf("ID is empty").Error()
 	}
 	request_Org, _ := ctx.GetClientIdentity().GetMSPID()
+
+	re, err := regexp.Compile(`[^\w]`)
+	if err != nil {
+		log.Fatal(err)
+	}
+	request_Org = re.ReplaceAllString(request_Org, "")
+
+
 	if !strings.EqualFold("Org1MSP", request_Org) {
 		log.Printf("wrong organization: %v", request_Org)
 		return fmt.Errorf("wrong organization: %v", request_Org).Error()
