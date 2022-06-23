@@ -19,6 +19,8 @@ import (
 	"strings"
 	 
 	"regexp"
+	"container/list"
+	
 
 )
 
@@ -59,6 +61,7 @@ type ParcelType struct {
 	Localization string `json:"localization"`
 
 	Track        string `json:"Track"`
+	
 
 }
 
@@ -80,68 +83,115 @@ type Kurier struct {
 
 func main() {
 
-	
-	// ======> 1 Krok towrzymy nowa przesylke <===================
-	var numerPrzesylki = RegisterParcel("Destination" , "Product_List" , "Consignor")
-	print("Nowo utworzona  przesylka ma numer = ",numerPrzesylki,"\n")
+	// New list.
+    values := list.New()
+	printMenu()
 
-	// ======> 2 Krok pobranie obecnej trasy przesylki  <===================
-	
-	var trasaPrzesylki = GetTrace(numerPrzesylki)
-	print("Przesyka obecnie pokonala trase = ",trasaPrzesylki,"\n")
-	
+	for {
+	print("\n ====== Wykonaj operacje numer ======== ")	
+	var wybor string
+    fmt.Scanln(&wybor)
+	print("\n")		
+	if (wybor == "1"){
+		print(" Obecne przesylki w rejestrze ")
+		for temp := values.Front(); temp != nil; temp = temp.Next() {
+			fmt.Println(temp.Value)
+		}
+	}else if (wybor == "2"){
+		print("Podaj cel przesylki\n")
+		var cel string
+		fmt.Scanln(&cel)
 
-	// ======> 3 Krok pobranie danych przesylki  <===================
-	
-	var lokalizacjaPrzesylki = GetParcel(numerPrzesylki)
-	print("Przesylka = ",lokalizacjaPrzesylki,"\n")
-	
-	// ======> 4 Krok proba wyslania przesylki do sortowni firmy Org2MSP  <===================
-	
-	var wynikSortownia1  = SortingO1(numerPrzesylki)
-	print("Proba przeniesienia paczki do sortowni Org2MSP ", wynikSortownia1 ,"\n")
+		print("Podaj liste produktow\n")
+		var Product_List string
+		fmt.Scanln(&Product_List)
 
-	//======> 5 Krok proba wyslania przesylki do sortowni firmy Org1MSP  <===================
-	
-	var wynikSortownia2  = SortingO2(numerPrzesylki)
-	print("Proba przeniesienia paczki do sortowni Org1MSP ", wynikSortownia2 ,"\n")
-	
+		print("Podaj nadawce przesylki\n")
+		var Consignor string
+		fmt.Scanln(&Consignor)
 
+		var numerPrzesylki = RegisterParcel(cel , Product_List , Consignor)
+		print("Nowo utworzona  przesylka ma numer = ",numerPrzesylki,"\n")
+		values.PushFront(numerPrzesylki)
+	}else if (wybor == "3"){
+		print("Podaj numer przesylki na ktorej ma byc wykonana operacja\n")
+		var numerPrzesylki string
+		fmt.Scanln(&numerPrzesylki)
+		var lokalizacjaPrzesylki = GetParcel(numerPrzesylki)
+		print("Przesylka = ",lokalizacjaPrzesylki,"\n")
+	}else if (wybor == "4"){
+		print("Podaj numer przesylki na ktorej ma byc wykonana operacja\n")
+		var numerPrzesylki string
+		fmt.Scanln(&numerPrzesylki)
+		var trasaPrzesylki = GetTrace(numerPrzesylki)
+		print("Przesyka obecnie pokonala trase = ",trasaPrzesylki,"\n")
+	}else if (wybor == "5"){
+		print("Podaj numer przesylki na ktorej ma byc wykonana operacja\n")
+		var numerPrzesylki string
+		fmt.Scanln(&numerPrzesylki)
+		var wynikSortownia2  = SortingO2(numerPrzesylki)
+		print("Proba przeniesienia paczki do sortowni Org1MSP ", wynikSortownia2 ,"\n")
+	}else if (wybor == "6"){
+		print("Podaj numer przesylki na ktorej ma byc wykonana operacja\n")
+		var numerPrzesylki string
+		fmt.Scanln(&numerPrzesylki)
+		var wynikSortownia1  = SortingO1(numerPrzesylki)
+		print("Proba przeniesienia paczki do sortowni Org2MSP ", wynikSortownia1 ,"\n")
+	}else if (wybor == "7"){
+		print("Podaj numer przesylki na ktorej ma byc wykonana operacja\n")
+		var numerPrzesylki string
+		fmt.Scanln(&numerPrzesylki)
+		var wynikBranch2  = BranchO1(numerPrzesylki)
+		print("Proba przeniesienia paczki do odzialu  Org1MSP ", wynikBranch2 ,"\n")
+	}else if (wybor == "8"){
+		print("Podaj numer przesylki na ktorej ma byc wykonana operacja\n")
+		var numerPrzesylki string
+		fmt.Scanln(&numerPrzesylki)
+		var wynikBranch1  = BranchO2(numerPrzesylki)
+		print("Proba przeniesienia paczki do odzialu Org2MSP ", wynikBranch1 ,"\n")
+	}else if (wybor == "9"){
+		print("Podaj numer przesylki na ktorej ma byc wykonana operacja\n")
+		var numerPrzesylki string
+		fmt.Scanln(&numerPrzesylki)
+		var numerKuriera string
+		print("Podaj numer kuriera ktory ma dostarczyc przesylke")
+		fmt.Scanln(&numerKuriera)
+		var wynikKurier  = GiveToCourier(numerPrzesylki, numerKuriera)
+		print("Proba dostarczenia przesylki ", wynikKurier ,"\n")
+	}else if (wybor == "10"){
+		print("Podaj numer przesylki na ktorej ma byc wykonana operacja\n")
+		var numerPrzesylki string
+		fmt.Scanln(&numerPrzesylki)
+		var dostarczeniePrzesylki = Delivered(numerPrzesylki)
+		print("Przesyka dotarla do celu = ",dostarczeniePrzesylki,"\n")
+	}else if (wybor == "Exit"){
+		break
+	}else{
+		printMenu()
+	}
 
-	// ======> 6 Krok proba wyslania przesylki do sortowni firmy Org2MSP  <===================
+	}
 	
-	var wynikBranch1  = BranchO2(numerPrzesylki)
-	print("Proba przeniesienia paczki do odzialu Org2MSP ", wynikBranch1 ,"\n")
-
-	//======> 7 Krok proba wyslania przesylki do sortowni firmy Org1MSP  <===================
-	
-	var wynikBranch2  = BranchO1(numerPrzesylki)
-	print("Proba przeniesienia paczki do odzialu  Org1MSP ", wynikBranch2 ,"\n")
-	
-	//======> 8 Krok przekazanie paczki do kuriera numer 1  <===================
-	
-	var numerKuriera = "1"
-	var wynikKurier  = GiveToCourier(numerPrzesylki, numerKuriera)
-	print("Proba dostarczenia przesylki ", wynikKurier ,"\n")
-
-	
-	// ======> 9 Krok dostarczenie przesylki  <===================
-	
-	var dostarczeniePrzesylki = Delivered(numerPrzesylki)
-	print("Przesyka dotarla do celu = ",dostarczeniePrzesylki,"\n")
 		
-	
-		
-
-	// ======> 10 Krok pobranie obecnej trasy przesylki  <===================
-	
-	trasaPrzesylki = GetTrace(numerPrzesylki)
-	print("Przesyka obecnie pokonala trase = ",trasaPrzesylki,"\n")
-	
-
 	fmt.Println("Terminating the application...")
 
 }
+
+func printMenu(){
+	print("=============Menu=============\n")
+	print("1. Wypisz obecne przesyki w rejestrze\n")
+	print("2. Dodaj nowa przesylke do rejestru\n")
+	print("3. Pobierz doane o przesylce\n")
+	print("4. Wypisz trase przesylki\n")
+	print("5. Wyslij przesylke do sortowni firmy Org1MSP\n")
+	print("6. Wyslij przesylke do sortowni firmy Org2MSP\n")
+	print("7. Wyslij paczke do odzialu Org1MSP\n")
+	print("8. Wyslij paczke do odzialu Org2MSP\n")
+	print("9. Przekaz paczke kurierowi do dostarczenia\n")
+	print("10. Zmien status przesylki na dostarczony\n")
+	print("Exit. Wyjdz z rejestru\n")
+}
+
 
 
 func Delivered(numerPrzesylki string) string{
